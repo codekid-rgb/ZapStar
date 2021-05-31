@@ -1,0 +1,7 @@
+Godot Engine v3.2.3.stable.official - https://godotengine.org
+OpenGL ES 3.0 Renderer: GeForce GTX 970/PCIe/SSE2
+ 
+**ERROR**: res://default_bus_layout.tres:1 - Parse Error: 
+   At: scene/resources/resource_format_text.cpp:843:open() - res://default_bus_layout.tres:1 - Parse Error: 
+**ERROR**: Failed loading resource: res://default_bus_layout.tres. Make sure resources have been imported by opening the project in the editor at least once.
+   At: core/io/resource_loader.cpp:279:_load() - Condition "found" is true. Returned: RES()

@@ -1,0 +1,28 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://worlds/world complet.gd" type="Script" id=1]
+[ext_resource path="res://World complete .png" type="Texture" id=2]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 32, 32 )
+
+[node name="world complet" type="Area2D"]
+position = Vector2( -0.475662, -26.161 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
+world_scene = "res://world2.tscn"
+
+[node name="obj_chest" type="Sprite" parent="."]
+position = Vector2( 4.04306, -14.8377 )
+scale = Vector2( 1, 0.864571 )
+texture = ExtResource( 2 )
+offset = Vector2( 0, 16 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 64, 72 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+modulate = Color( 0.898039, 0.113725, 0.113725, 1 )
+position = Vector2( 8.79958, -8.79959 )
+shape = SubResource( 1 )
