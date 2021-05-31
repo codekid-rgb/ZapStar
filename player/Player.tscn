@@ -1,0 +1,136 @@
+[gd_scene load_steps=17 format=2]
+
+[ext_resource path="res://player/Player.gd" type="Script" id=1]
+[ext_resource path="res://player/Untitled_Artwork 13.png" type="Texture" id=2]
+[ext_resource path="res://player/Untitled_Artwork 11.png" type="Texture" id=3]
+[ext_resource path="res://player/Untitled_Artwork 15.png" type="Texture" id=4]
+[ext_resource path="res://player/Untitled_Artwork 14.png" type="Texture" id=5]
+[ext_resource path="res://player/Untitled_Artwork 12.png" type="Texture" id=6]
+[ext_resource path="res://player/Button2.gd" type="Script" id=7]
+[ext_resource path="res://objects.tscn" type="PackedScene" id=8]
+[ext_resource path="res://objects.png" type="Texture" id=9]
+[ext_resource path="res://5.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Stars.png" type="Texture" id=11]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 4 ) ],
+"loop": true,
+"name": "idle",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 3 ) ],
+"loop": true,
+"name": "shoot",
+"speed": 100.0
+}, {
+"frames": [ ExtResource( 5 ) ],
+"loop": true,
+"name": "fall",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 6 ), ExtResource( 2 ), ExtResource( 4 ) ],
+"loop": true,
+"name": "run",
+"speed": 8.0
+}, {
+"frames": [ ExtResource( 5 ) ],
+"loop": true,
+"name": "jump",
+"speed": 5.0
+} ]
+
+[sub_resource type="CapsuleShape2D" id=2]
+radius = 15.7344
+height = 33.1407
+
+[sub_resource type="AtlasTexture" id=3]
+flags = 4
+atlas = ExtResource( 9 )
+region = Rect2( 64, 2, 15, 14 )
+
+[sub_resource type="AtlasTexture" id=4]
+flags = 4
+atlas = ExtResource( 9 )
+region = Rect2( 114.25, 241.621, 13.5, 14.375 )
+
+[sub_resource type="AtlasTexture" id=5]
+flags = 4
+atlas = ExtResource( 9 )
+region = Rect2( 114, 241.621, 13.5, 14.375 )
+
+[node name="Player" type="KinematicBody2D"]
+position = Vector2( 1.1095, -5.39946 )
+collision_layer = 513
+script = ExtResource( 1 )
+world_scene = "res://menu/start menu.tscn"
+
+[node name="gun spawn" type="Position2D" parent="."]
+position = Vector2( 15.7264, 3.69731 )
+
+[node name="gun spawn2" type="Position2D" parent="."]
+position = Vector2( -32.3776, 3.46172 )
+
+[node name="sprite" type="AnimatedSprite" parent="."]
+position = Vector2( -5.16427, 5.04406 )
+scale = Vector2( 0.0409064, 0.0442594 )
+frames = SubResource( 1 )
+animation = "idle"
+playing = true
+
+[node name="player_collider" type="CollisionShape2D" parent="."]
+position = Vector2( -8.56981, 9.68685 )
+shape = SubResource( 2 )
+
+[node name="player_camera" type="Camera2D" parent="."]
+position = Vector2( -0.903748, 0.451874 )
+scale = Vector2( 0.907726, 0.831531 )
+current = true
+smoothing_enabled = true
+
+[node name="quit" type="Button" parent="player_camera"]
+margin_left = -266.397
+margin_top = -78.4937
+margin_right = -210.397
+margin_bottom = -58.4937
+custom_colors/font_color = Color( 1, 0, 0, 1 )
+text = "quit"
+script = ExtResource( 7 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="hert" parent="player_camera" instance=ExtResource( 8 )]
+position = Vector2( -210.735, -105.034 )
+scale = Vector2( 2.36675, 2.19012 )
+texture = SubResource( 3 )
+
+[node name="ones place" parent="player_camera" instance=ExtResource( 10 )]
+position = Vector2( -253.513, -117.201 )
+scale = Vector2( 1.24665, 1.48689 )
+texture = SubResource( 4 )
+normal_map = SubResource( 5 )
+centered = false
+
+[node name="tens place" parent="player_camera" instance=ExtResource( 10 )]
+position = Vector2( -268.641, -116.761 )
+scale = Vector2( 1.24665, 1.48689 )
+texture = SubResource( 5 )
+normal_map = SubResource( 5 )
+centered = false
+
+[node name="player_ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="player_ParallaxLayer" type="ParallaxLayer" parent="player_ParallaxBackground"]
+position = Vector2( 1.28157, 2.27834 )
+motion_scale = Vector2( 0.5, 0.5 )
+motion_mirroring = Vector2( 640, 640 )
+
+[node name="Sky" type="Sprite" parent="player_ParallaxBackground/player_ParallaxLayer"]
+position = Vector2( -16.1324, -269.618 )
+scale = Vector2( 4.90885, 2.01246 )
+texture = ExtResource( 11 )
+__meta__ = {
+"_edit_lock_": true
+}
+[connection signal="pressed" from="player_camera/quit" to="." method="_on_quit_pressed"]
