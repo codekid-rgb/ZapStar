@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/glow_med_C_002.wav-0189f933a22eb2496ef4db8ec51650ff.sample"
+
+[deps]
+
+source_file="res://glow_med_C_002.wav"
+dest_files=[ "res://.import/glow_med_C_002.wav-0189f933a22eb2496ef4db8ec51650ff.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0
